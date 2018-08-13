@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+	<struts>
+		<!-- 动态方法调用 默认关闭   现在打开 -->
+		<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+		<package name="mypkg" extends="struts-default">
+		
+			<action name="helloAction" class="com.sxt.action.HelloAction1">
+				<result name="ok">/ok.jsp</result>
+			</action>
+			
+			<action name="login1" class="com.sxt.action.Login2">
+				<result name="success">/loginSuccess.jsp</result>
+				<result name="error">/loginFail.jsp</result>
+			</action>
+			
+			
+			
+			<!--
+			(1)
+			 <action name="addUserAction" class="com.sxt.action.User" method="addUser">
+				<result name="addUserSuccess">/addUserSuccess.jsp</result>		
+			</action>
+			<action name="updataAction" class="com.sxt.action.User" method="updataUser">
+				<result name="deleteUserSuccess">/deleteUserSuccess.jsp</result>
+			</action>
+			<action name="deleteAction" class="com.sxt.action.User" method="deleteUser">
+				<result name="updataUserSuccess">/updataUserSuccess.jsp</result>
+			</action>
+			<action name="selectUserAction" class="com.sxt.action.User" method="selectUser">
+				<result name="selectUserSuccess">/selectUserSuccess.jsp</result>
+			</action> 
+			
+			-->
+			<!--（2） 使用通配符简化配置  -->
+			<!-- 
+			
+			<action name="*Action" class="com.sxt.action.User" method="{1}">
+				<result name="{1}Success">/{1}Success.jsp</result>
+			</action>
+			
+			 -->
+			<!-- (3) 动态方法调用   默认关闭  要用这个  先打开            暴露类的方法    /userAction!addUser-->
+			<action name="userAction" class="com.sxt.action.User">
+				<result name="addUserSuccess">/addUserSuccess.jsp</result>	
+				<result name="deleteUserSuccess">/deleteUserSuccess.jsp</result>
+				<result name="updataUserSuccess">/updataUserSuccess.jsp</result>
+				<result name="selectUserSuccess">/selectUserSuccess.jsp</result>
+			</action>
+			
+		</package>
+	
+	
+	</struts>
