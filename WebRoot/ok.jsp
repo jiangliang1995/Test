@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    这是一个Struts2应用程序 1111222<br>
+    这是一个Struts2应用程序 1111222333<br>
   </body>
 </html>
